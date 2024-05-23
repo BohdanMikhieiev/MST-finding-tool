@@ -13,6 +13,10 @@ export class Graph {
         this.iterations = 0;
     }
     addNode(x, y) {
+        if (this.nodesArr.length > 50) {
+            alert("Ліміт вершин - 50");
+            return;
+        }
         const node = new Node(this.nodeCount, x, y)
         this.nodeCount++;
         this.nodesArr.push(node);
