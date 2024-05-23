@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         timeComplexityTool.classList.remove("active");
 
         if (weightMatrixDiv.textContent.trim().length === 0) {
-            weightMatrixDiv.innerHTML = `Поки немає ребер для побудови матриці вагів`;
+            weightMatrixDiv.innerHTML = `Поки немає ребер для побудови матриці ваг`;
         }
         if (weightMatrixDiv.style.display === "block") {
             weightMatrixDiv.style.display = "none";

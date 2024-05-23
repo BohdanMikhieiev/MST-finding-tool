@@ -545,7 +545,7 @@ export class Graph {
             return;
         }
         this.boruvkaMST();
-        let fileContent = "Матриця вагів:\n";
+        let fileContent = "Матриця ваг:\n";
         let fileName = prompt("Назва файлу");
         if (fileName.length > 100) {
             alert("Назва файлу не може містити більше 100 символів");
