@@ -1,0 +1,213 @@
+/*Онулення*/
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height: 100%;width: 100%;font-size: 100%;line-height: 1;font-size: 14px;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+.graphContainer {
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    background: #cfcfcf;
+    box-shadow: 0px 0px 17px -3px #fff;
+    min-height: 300px;
+    position: relative;
+    width: 100%;
+    user-select: none;
+    flex: auto 1 1;
+    overflow: auto;
+}
+
+.graph {
+    width: 100%;
+    flex: auto 1 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px 20px 20px 20px;
+}
+
+
+.node {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #555;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+}
+
+
+body {
+    background-color: #0b0b0a;
+    font-family: 'Arial', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.edge {
+    position: absolute;
+    height: 2px;
+    background-color: black;
+    z-index: 1;
+}
+
+.weight {
+    position: absolute;
+    background-color: #555;
+    color: white;
+    padding: 5px;
+    min-width:24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    z-index: 3;
+    background: #aaa;
+    color: #fff;
+    text-shadow: 0px 0px 10px black;
+    box-shadow: 0px 0px 10px white;
+    font-weight: bold;
+}
+
+.button-elegant {
+    padding: 7px 13px;
+    border: 2px solid #2c2c2c;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.boton-elegante::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.25) 0%,
+            rgba(255, 255, 255, 0) 70%
+    );
+    transform: scale(0);
+    transition: transform 0.5s ease;
+}
+
+.mst-edge {
+    position: absolute;
+    height: 2px;
+    background: rgb(239, 51, 30);
+    z-index: 1;
+}
+
+.button-elegant:hover::after {
+    transform: scale(4);
+}
+
+.button-elegant:hover {
+    border-color: #666666;
+    background: #292929;
+}
+
+.button-elegant:active {
+    transform: scale(0.9);
+}
+
+.button-elegant.active {
+    background: #434343;
+    border-color: #8b8b8b;
+}
+
+.button-elegant.disable {
+    opacity: 45%;
+    pointer-events: none;
+}
+
+select {
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #555;
+    color: white;
+    border: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 20px 0 20px;
+    column-gap: 10px;
+}
+
+
+
+.historyLog {
+    border-radius: 15px 15px 0 0;
+    margin: 0 20px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px 20px 20px;
+    min-height: 55px;
+    background: #333;
+}
+
+#timeComplexity, #weightMatrix {
+    display: none;
+    text-align: right;
+    align-self: center;
+    padding: 10px 20px 0 20px;
+    color: white;
+}
+
+.hidden {
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+#weightMatrix * {
+    padding: 2px;
+}
+
+

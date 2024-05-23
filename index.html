@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор Графів</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+    <nav class="toolbar" id="toolbar">
+        <button type="button" class="button-elegant activable-button" id="addNodeTool">Додати вершину</button>
+        <button type="button" class="button-elegant activable-button" id="removeNodeTool">Видалити вершину</button>
+        <button type="button" class="button-elegant activable-button" id="addEdgeTool">Додати ребро</button>
+        <button type="button" class="button-elegant activable-button" id="removeEdgeTool">Видалити ребро</button>
+        <button type="button" class="button-elegant activable-button" id="editEdgeTool">Редагувати ребро</button>
+        <select class="button-elegant" id="algorithmSelectorTool">
+            <option value="primAlgorithm">Алгоритм Прима</option>
+            <option value="kruskalAlgorithm">Алгоритм Крускала</option>
+            <option value="boruvkaAlgorithm">Алгоритм Борувки</option>
+        </select>
+        <button type="button" class="button-elegant activable-button" id="findMSTTool">Знайти найкоротше остовне дерево</button>
+        <button type="button" class="button-elegant" id="showTimeComplexityTool">Показати часову складність</button>
+        <button type="button" class="button-elegant" id="showWeightMatrixTool">Показати матрицю вагів</button>
+    </nav>
+    <div id="timeComplexity"></div>
+    <div id="weightMatrix"></div>
+    <div class="graph">
+        <div class="graphContainer" id="graphContainer"></div>
+    </div>
+    <div class="historyLog" id="historyLog"></div>
+</main>
+</body>
+<script type="module" src="script.js"></script>
+</html>
