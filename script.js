@@ -97,6 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const saveFileTool = document.getElementById("saveFileTool");
+    saveFileTool.addEventListener("click", () => {
+        removeAllActiveButtons();
+        output.innerText = "Вибрано інструмент збереження графу в файл"
+        graph.saveToFile();
+    });
+
     graphContainer.addEventListener("click", (event) => {
         if(graph.chosenTool === "addNode") {
             const x = event.offsetX;

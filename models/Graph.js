@@ -12,7 +12,6 @@ export class Graph {
         this.chosenTool = null;
         this.iterations = 0;
     }
-
     addNode(x, y) {
         const node = new Node(this.nodeCount, x, y)
         this.nodeCount++;
@@ -530,5 +529,41 @@ export class Graph {
         }
         matrixString += "</table>"
         return matrixString
+    }
+
+    saveToFile() {
+        if (!this.isGraphConnected()) {
+            alert("Граф не є зв'язним");
+            return;
+        }
+        if (this.edgesArr.length < 2) {
+            alert("Неможливо побудувати мінімальне остовне дерево з менше ніж 2 ребрами");
+            return;
+        }
+        this.boruvkaMST();
+        let fileContent = "Матриця вагів:\n";
+        let fileName = prompt("Назва файлу");
+        if (fileName.length > 100) {
+            alert("Назва файлу не може містити більше 100 символів");
+            return;
+        } else if(fileName.length === 0) {
+            alert("Вкажіть назву файлу");
+            return;
+        }
+        for (const row of this.convertToMatrix()) {
+            fileContent += row + "\n";
+        }
+
+        fileContent += "\nМінімальне остовне дерево\n";
+        this.mstEdges.forEach((edge) => {
+            fileContent += `1-ша вершина: ${edge.node1},: 2-га вершина: ${edge.node2}. Вага: ${edge.weight}\n` + "\n";
+        });
+        const blob = new Blob([fileContent], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 }
