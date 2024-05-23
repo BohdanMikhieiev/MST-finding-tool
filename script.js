@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const algorithm = document.getElementById("algorithmSelectorTool").value;
         graph.chooseMSTAlgorithm(algorithm, output);
         document.getElementById("timeComplexity").innerText =
-            `Кількість кроків алгоритму: ${<graph className="iterations"></graph>}`;
+            `Кількість кроків алгоритму: ${graph.iterations}`;
     });
 
     const timeComplexityTool = document.getElementById("showTimeComplexityTool");
