@@ -384,6 +384,7 @@ export class Graph {
     };
 
     primMST(choseNodeId)  {
+        console.log(this.edgesArr);
         this.iterations = 0;
         if (this.edgesArr.length < 2) {
             alert("Неможливо побудувати мінімальне остовне дерево з менше ніш двома ребрами");
@@ -408,6 +409,7 @@ export class Graph {
                 edgeQueue.push(edge);
                 this.iterations++;
             });
+            this.iterations++;
         }
 
         addEdges(startNode.id);
