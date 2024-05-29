@@ -107,7 +107,7 @@ main {
     overflow: hidden;
 }
 
-.boton-elegante::after {
+.button-elegant::after {
     content: "";
     position: absolute;
     top: 0;
