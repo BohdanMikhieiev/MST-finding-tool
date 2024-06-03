@@ -364,6 +364,7 @@ export class Graph {
         if (parent[component] === component) {
             return component;
         }
+        this.iterations++;
         return parent[component] = this.findParent(parent, parent[component]);
     }
 
@@ -458,13 +459,12 @@ export class Graph {
             const { node1, node2 } = edge;
             const root1 = this.findParent(parent, node1);
             const root2 = this.findParent(parent, node2);
-            this.iterations++;
 
             if (root1 !== root2) {
                 mstEdges.push(edge);
                 this.unionSet(parent, rank, root1, root2);
-                this.iterations++;
             }
+            this.iterations++;
         }
         this.mstEdges = mstEdges;
         return mstEdges
@@ -495,13 +495,12 @@ export class Graph {
                 if (root1 !== root2) {
                     if (cheapest[root1] === null || cheapest[root1].weight > weight) {
                         cheapest[root1] = edge;
-                        this.iterations++;
                     }
                     if (cheapest[root2] === null || cheapest[root2].weight > weight) {
                         cheapest[root2] = edge;
-                        this.iterations++;
                     }
                 }
+                this.iterations++;
             }
 
             for (let i = 0; i < cheapest.length; i++) {
@@ -514,9 +513,9 @@ export class Graph {
                         mstEdges.push(cheapest[i]);
                         this.unionSet(parent, rank, root1, root2);
                         numTrees--;
-                        this.iterations++;
                     }
                 }
+                this.iterations++;
             }
         }
 
