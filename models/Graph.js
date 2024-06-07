@@ -1,6 +1,6 @@
-import { Node } from './Node.js';
-import { Edge } from './Edge.js';
-import { disableButtons, enableButtons, removeAllActiveButtons } from '../utils.js';
+import {Node} from './Node.js';
+import {Edge} from './Edge.js';
+import {disableButtons, enableButtons, removeAllActiveButtons} from '../utils.js';
 
 export class Graph {
     constructor() {
@@ -303,8 +303,30 @@ export class Graph {
                 break;
             case "editEdge":
                 const edge = this.edgesArr.find(edge => edge.id === edgeID);
-                const newWeight = parseInt(prompt("Введіть нову вагу ребра:"));
-                edge.weight = newWeight;
+                let validInput = false;
+                while (!validInput) {
+                    let newWeight = prompt("Введіть нову вагу ребра:");
+                    if (newWeight === null) {
+                        this.selectedNode = null;
+                        return;
+                    }
+                    if (/^-?\d+$/.test(newWeight)) {
+                        newWeight = parseInt(newWeight);
+                        if (newWeight >= -1000 && newWeight <= 1000) {
+                            validInput = true;
+                            edge.weight = newWeight;
+                        } else {
+                            alert("Вага не може виходити за діапазон [-1000; 1000]");
+                        }
+                    } else {
+                        alert("Введене значення не є цілим числом. Спробуйте ще раз.");
+                    }
+                }
+                if (document.getElementById("showWeightMatrixTool").classList.contains("active")) {
+                    const matrixString = this.generateDivMatrixWeight();
+                    const weightMatrixDiv = document.getElementById('weightMatrix');
+                    weightMatrixDiv.innerHTML = `${matrixString}`;
+                }
                 this.renderGraph();
                 break;
         }
