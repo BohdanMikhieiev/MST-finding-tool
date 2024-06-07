@@ -411,12 +411,11 @@ export class Graph {
     };
 
     primMST(choseNodeId)  {
-        console.log(this.edgesArr);
-        this.iterations = 0;
         if (this.edgesArr.length < 2) {
             alert("Неможливо побудувати мінімальне остовне дерево з менше ніш двома ребрами");
             return;
         }
+        this.iterations = 0;
         let weightMatrix = this.convertToMatrix();
         const mstEdges = [];
         const mstNodes = new Set();
@@ -466,6 +465,10 @@ export class Graph {
     }
 
     kruskalMST() {
+        if (this.edgesArr.length < 2) {
+            alert("Неможливо побудувати мінімальне остовне дерево з менше ніш двома ребрами");
+            return;
+        }
         this.iterations = 0;
         this.edgesArr = this.insertionSort(this.edgesArr, (a, b) => a.weight - b.weight);
         const edges = [...this.edgesArr];
@@ -497,6 +500,10 @@ export class Graph {
     }
 
     boruvkaMST() {
+        if (this.edgesArr.length < 2) {
+            alert("Неможливо побудувати мінімальне остовне дерево з менше ніш двома ребрами");
+            return;
+        }
         this.iterations = 0;
         const parent = [];
         const rank = [];
