@@ -214,6 +214,10 @@ export class Graph {
         disableButtons();
         this.chosenTool = "none";
         removeAllActiveButtons();
+        if (this.edgesArr.length < 2 || !this.isGraphConnected()) {
+            enableButtons();
+            return;
+        }
 
         edges.forEach(edge => edge.remove());
         this.mstEdges.forEach((edge, index) => {
